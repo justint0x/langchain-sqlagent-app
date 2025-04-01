@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 const AgentUI = () => {
     const [query, setQuery] = useState('');
     const [result, setResult] = useState(null);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setQuery(event.target.value);
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setError(null);
         setResult(null);
@@ -30,7 +30,11 @@ const AgentUI = () => {
             const data = await response.json();
             setResult(data.result);
         } catch (err) {
-            setError(err.message);
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('An unknown error occurred');
+            }
         }
     };
 
