@@ -1,0 +1,26 @@
+{
+  "name": "langchain-sqlagent-app",
+  "version": "1.0.0",
+  "description": "A Next.js application that interacts with a SQL database using LangChain SQL agent.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "langchain": "latest",
+    "mysql2": "latest",
+    "next": "latest",
+    "pg": "^8.14.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "typeorm": "^0.3.21"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "typescript": "latest"
+  },
+  "license": "MIT"
+}
