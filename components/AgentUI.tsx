@@ -40,7 +40,7 @@ const AgentUI = () => {
 
     return (
         <div>
-            <h1>SQL Agent Interface</h1>
+            <h1 style={{ color: 'green' }}>SQL Agent Interface</h1>
             <form onSubmit={handleSubmit}>
                 <textarea
                     value={query}
@@ -48,15 +48,42 @@ const AgentUI = () => {
                     placeholder="Enter your SQL query here"
                     rows={4}
                     cols={50}
+                    style={{
+                        border: '1px solid #D1D5DB',
+                        borderRadius: '4px',
+                        padding: '8px',
+                    }}
                 />
                 <br />
-                <button type="submit">Execute Query</button>
+                <button
+                    type="submit"
+                    style={{
+                        backgroundColor: '#3B82F6',
+                        color: 'white',
+                        padding: '8px 16px',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        border: 'none',
+                    }}
+                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#2563EB')}
+                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#3B82F6')}
+                >
+                    Execute Query
+                </button>
             </form>
             {error && <p style={{ color: 'red' }}>Error: {error}</p>}
             {result && (
                 <div>
-                    <h2>Result:</h2>
-                    <pre>{JSON.stringify(result, null, 2)}</pre>
+                    <h2 style={{ fontWeight: 'bold' }}>Result:</h2>
+                    <pre
+                        style={{
+                            backgroundColor: '#F3F4F6',
+                            padding: '8px',
+                            borderRadius: '4px',
+                        }}
+                    >
+                        {JSON.stringify(result, null, 2)}
+                    </pre>
                 </div>
             )}
         </div>

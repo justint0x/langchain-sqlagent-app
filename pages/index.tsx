@@ -3,8 +3,7 @@ import AgentUI from '../components/AgentUI';
 
 const Home: React.FC = () => {
     return (
-        <div>
-            <h1>SQL Agent Interface</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <AgentUI />
         </div>
     );
